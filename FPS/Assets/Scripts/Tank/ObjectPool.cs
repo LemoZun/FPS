@@ -5,24 +5,23 @@ using UnityEngine;
 public class ObjectPool : MonoBehaviour
 {
     [SerializeField] PooledObject prefab;
-    [SerializeField] int size;
     [SerializeField] int capacity;
-    
 
     private Queue<PooledObject> pool;
+
     private void Awake()
     {
         pool = new Queue<PooledObject>(capacity);
-        for(int i = 0; i < size; i++)
+        for (int i = 0; i < capacity; i++)
         {
             PooledObject instance = Instantiate(prefab);
-            instance.gameObject.SetActive(false); // 생성 후 일단 비활성화
-            instance.Pool = this; 
+            instance.gameObject.SetActive(false);
+            instance.Pool = this;
             pool.Enqueue(instance);
         }
     }
 
-    public PooledObject GetPool(Vector3 position, Quaternion rotation) 
+    public PooledObject GetPool(Vector3 position, Quaternion rotation)
     {
         if (pool.Count > 0)
         {
@@ -36,11 +35,11 @@ public class ObjectPool : MonoBehaviour
         {
             return null;
         }
-        
     }
-     public void ReturnPool(PooledObject _instance)
+
+    public void ReturnPool(PooledObject _instance)
     {
-        if(pool.Count < capacity)
+        if (pool.Count < capacity)
         {
             _instance.gameObject.SetActive(false);
             pool.Enqueue(_instance);
@@ -50,4 +49,6 @@ public class ObjectPool : MonoBehaviour
             Destroy(_instance.gameObject);
         }
     }
+
+
 }

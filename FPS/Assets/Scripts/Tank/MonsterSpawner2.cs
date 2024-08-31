@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterSpawner : MonoBehaviour
+public class MonsterSpawner2 : MonoBehaviour
 {
     [SerializeField] ObjectPool[] monsterPool;
     [SerializeField] ObjectPool monster;

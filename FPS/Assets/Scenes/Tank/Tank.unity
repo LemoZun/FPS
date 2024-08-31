@@ -602,7 +602,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 3305749364268153221, guid: c5ed736e000457b449abf1eca5f0f2e4, type: 3}
-  size: 10
   capacity: 10
 --- !u!4 &597634733
 Transform:
@@ -634,7 +633,6 @@ MonoBehaviour:
   monsterPool:
   - {fileID: 597634732}
   monster: {fileID: 597634732}
-  maxMonster: 10
   spawnLocation: 10
 --- !u!1 &988327447
 GameObject:
